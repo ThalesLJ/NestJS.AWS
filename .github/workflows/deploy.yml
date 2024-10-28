@@ -29,7 +29,7 @@ jobs:
       - name: Upload ZIP file
         uses: actions/upload-artifact@v4
         with:
-          name: my-nest-app
+          name: release
           path: release.zip
 
   deploy:
@@ -39,7 +39,7 @@ jobs:
       - name: Download ZIP file
         uses: actions/download-artifact@v4
         with:
-          name: my-nest-app
+          name: release
 
       - name: Deploy to AWS
         env:
@@ -60,10 +60,10 @@ jobs:
 
           # Conecte-se à instância AWS e extraia o arquivo
           ssh -o StrictHostKeyChecking=no -i id_rsa $USER@$HOST << 'EOF'
-            unzip /home/$USER/release.zip -d /home/$USER/my-nest-app/
-            cd /home/$USER/my-nest-app
+            unzip /home/$USER/release.zip -d /home/$USER/release/
+            cd /home/$USER/release
             npm install --production
-            pm2 restart my-nest-app || pm2 start dist/main.js --name my-nest-app
+            pm2 restart release || pm2 start dist/main.js --name release
           EOF
 
           # Remover a chave privada após o uso
