@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: Create ZIP file
-        run: zip -r release.zip dist
+        run: zip -r release.zip dist package.json package-lock.json
 
       - name: Upload ZIP file
         uses: actions/upload-artifact@v4
