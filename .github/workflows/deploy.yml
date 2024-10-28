@@ -60,7 +60,7 @@ jobs:
 
           # Conecte-se à instância AWS e extraia o arquivo
           ssh -o StrictHostKeyChecking=no -i id_rsa $USER@$HOST << 'EOF'
-            unzip /home/$USER/release.zip -d /home/$USER/release/
+            unzip -o /home/$USER/release.zip -d /home/$USER/release/
             cd /home/$USER/release
             npm install --production
             pm2 restart release || pm2 start dist/main.js --name release
