@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { path as ffmpegPath } from '@ffmpeg-installer/ffmpeg';
-import { path as ffprobePath } from '@ffprobe-installer/ffprobe';
+//import { path as ffprobePath } from '@ffprobe-installer/ffprobe';
 import * as ffmpeg from 'fluent-ffmpeg';
 import * as os from 'os';
 import * as path from 'path';
 
 ffmpeg.setFfmpegPath(ffmpegPath);
-ffmpeg.setFfprobePath(ffprobePath);
+//ffmpeg.setFfprobePath(ffprobePath);
 
 @Injectable()
 export class AppService {
