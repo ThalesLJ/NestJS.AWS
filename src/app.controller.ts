@@ -12,6 +12,7 @@ export class AppController {
 
   @Post()
   async mixAudio(): Promise<string> {
-    return await this.appService.mixAudio();
+    return this.appService.getHello();
+    // return await this.appService.mixAudio();
   }
 }
