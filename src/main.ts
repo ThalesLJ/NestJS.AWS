@@ -31,10 +31,7 @@ bootstrap();
 export async function createNestApp(): Promise<INestApplication> {
   const app = await NestFactory.create(AppModule, {
     cors: {
-      origin: [
-        'chrome-extension://fnmeecnkanjcicigcolomlndlipdedph',
-        'http://localhost:3000',
-      ],
+      origin: ['https://organizandotudo.netlify.app'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH', 'HEAD'],
       allowedHeaders: [
         'Content-Type',
