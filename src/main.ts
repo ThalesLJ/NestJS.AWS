@@ -39,6 +39,7 @@ export async function createNestApp(): Promise<INestApplication> {
         'Authorization',
         'X-Requested-With',
         'Origin',
+        'api-key',
       ],
       credentials: true,
     },
